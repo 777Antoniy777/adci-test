@@ -1,0 +1,13 @@
+.main-header {
+  min-height: 130px;
+  padding-top: 20px;
+  font-size: 14px;
+  line-height: 18px;
+  color: $w;
+  background-color: $grey1;
+
+  @media (min-width: $media-dt) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}

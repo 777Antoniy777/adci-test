@@ -56,7 +56,7 @@ gulp.task("images", function() {
       mozjpeg: {
         progressive: true,
         optimize: true,
-        quality: 95
+        quality: 70
       },
       guetzli: false,
       gifsicle: false,
