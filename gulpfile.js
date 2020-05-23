@@ -1,18 +1,20 @@
 "use strict";
 var gulp = require("gulp");
-var posthtml = require("gulp-posthtml");
-var fileinclude = require('gulp-file-include');
+var postHTML = require("gulp-posthtml");
+var fileInclude = require("gulp-file-include");
 var sass = require("gulp-sass");
 var plumber = require("gulp-plumber");
-var postcss = require("gulp-postcss");
+var postCSS = require("gulp-postcss");
 var autoprefixer = require("autoprefixer");
-var cssmin = require("gulp-csso");
+var objectFit = require("postcss-object-fit-images");
+var csso = require("gulp-csso");
 var rename = require("gulp-rename");
 // var image = require("gulp-image");
-var objectfit = require(`postcss-object-fit-images`);
-var webpack = require('webpack-stream');
-var svgsprite = require('gulp-svg-sprite');
-var sourcemaps = require(`gulp-sourcemaps`);
+var webpack = require("webpack");
+var webpackStream = require("webpack-stream");
+var webpackConfig = require('./webpack.config.js');
+var svgSprite = require("gulp-svg-sprite");
+var sourceMap = require("gulp-sourcemaps");
 var del = require("del");
 var server = require("browser-sync").create();
 
@@ -20,16 +22,16 @@ var server = require("browser-sync").create();
 gulp.task("css", function () {
   return gulp.src("src/sass/style.scss")
     .pipe(plumber())
-    .pipe(sourcemaps.init())
+    .pipe(sourceMap.init())
     .pipe(sass())
-    .pipe(postcss([
+    .pipe(postCSS([
       autoprefixer(),
-      objectfit()
+      objectFit()
     ]))
     .pipe(gulp.dest("build/css"))
-    .pipe(cssmin())
+    .pipe(csso())
     .pipe(rename("style.min.css"))
-    .pipe(sourcemaps.write('.'))
+    .pipe(sourceMap.write('.'))
     .pipe(gulp.dest("build/css"))
     .pipe(server.stream());
 });
@@ -37,11 +39,10 @@ gulp.task("css", function () {
 // js
 gulp.task("js", function () {
   return gulp.src("src/js/**/*.js")
-    .pipe(webpack())
+    .pipe(webpackStream(webpackConfig), webpack)
     .on('error', function handleError() {
       this.emit('end'); // Recover from errors
     })
-    .pipe(rename("all.js"))
     .pipe(gulp.dest("build/js"))
     .pipe(server.stream());
 });
@@ -73,7 +74,7 @@ gulp.task("images", function() {
 // svg sprite
 gulp.task('sprite', function () {
   return gulp.src('src/img/icons-sprite/*.svg')
-		.pipe(svgsprite({
+		.pipe(svgSprite({
       mode: {
         stack: {
           sprite: "../sprite.svg"
@@ -86,11 +87,11 @@ gulp.task('sprite', function () {
 // html
 gulp.task("html", function() {
   return gulp.src(["src/pages/*.html"])
-    .pipe(fileinclude({
+    .pipe(fileInclude({
       prefix: '@@',
       basepath: 'src/pages/'
     }))
-    .pipe(posthtml())
+    .pipe(postHTML())
     .pipe(gulp.dest("build"));
 });
 

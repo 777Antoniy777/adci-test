@@ -10,6 +10,8 @@ const reviewsSlider = tns({
   mouseDrag: true,
 });
 
+console.log(33);
+
 // const mql = window.matchMedia('(max-width: 991px)');
 
 // const isMediaTb = (e) => {
