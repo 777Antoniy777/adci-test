@@ -8,7 +8,7 @@ var postcss = require("gulp-postcss");
 var autoprefixer = require("autoprefixer");
 var cssmin = require("gulp-csso");
 var rename = require("gulp-rename");
-var image = require("gulp-image");
+// var image = require("gulp-image");
 var objectfit = require(`postcss-object-fit-images`);
 var webpack = require('webpack-stream');
 var svgsprite = require('gulp-svg-sprite');
@@ -38,6 +38,9 @@ gulp.task("css", function () {
 gulp.task("js", function () {
   return gulp.src("src/js/**/*.js")
     .pipe(webpack())
+    .on('error', function handleError() {
+      this.emit('end'); // Recover from errors
+    })
     .pipe(rename("all.js"))
     .pipe(gulp.dest("build/js"))
     .pipe(server.stream());
@@ -48,22 +51,22 @@ gulp.task("images", function() {
   return gulp.src([
     "src/img/**/*.{png,jpg,svg}", 
     "!src/img/icons-sprite/*.svg"])
-    .pipe(image({
-      pngquant: true,
-      optipng: false,
-      zopflipng: false,
-      jpegRecompress: false,
-      mozjpeg: {
-        progressive: true,
-        optimize: true,
-        quality: 70
-      },
-      guetzli: false,
-      gifsicle: false,
-      svgo: true,
-      concurrent: 10,
-      quiet: true
-    }))
+    // .pipe(image({
+    //   pngquant: true,
+    //   optipng: false,
+    //   zopflipng: false,
+    //   jpegRecompress: false,
+    //   mozjpeg: {
+    //     progressive: true,
+    //     optimize: true,
+    //     quality: 70
+    //   },
+    //   guetzli: false,
+    //   gifsicle: false,
+    //   svgo: true,
+    //   concurrent: 10,
+    //   quiet: true
+    // }))
     .pipe(gulp.dest("build/img/"));
 });
 
