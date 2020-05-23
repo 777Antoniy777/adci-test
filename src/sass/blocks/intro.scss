@@ -1,19 +1,12 @@
 .intro {
-  .slider__item {
-    display: inline-block;
-    width: 200px;
-    height: 600px;
+  min-height: 600px;
+  height: 100vh;
 
-    &--1 {
-      background-color: blue;
-    }
+  @media (min-width: $media-dt) {
+    min-height: 800px;
+  }
 
-    &--2 {
-      background-color: green;
-    }
-
-    &--3 {
-      background-color: violet;
-    }
+  h1 {
+    @include visually-hidden;
   }
 }

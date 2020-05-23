@@ -6,11 +6,8 @@ const reviewsSlider = tns({
   slideBy: 'page',
   center: true,
   controls: false,
-  nav: false,
   mouseDrag: true,
 });
-
-console.log(33);
 
 // const mql = window.matchMedia('(max-width: 991px)');
 
