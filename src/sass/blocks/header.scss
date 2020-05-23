@@ -11,3 +11,17 @@
     line-height: 24px;
   }
 }
+
+// meny styles
+.menu-open .nav__list,
+.no-js .nav__list {
+  display: block;
+}
+
+.menu-open .nav__button {
+  background-image: url("../img/svg/close-icon.svg");
+}
+
+.no-js .nav__button-wrapper {
+  display: none;
+}
