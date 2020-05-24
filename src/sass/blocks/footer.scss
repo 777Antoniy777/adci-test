@@ -1,0 +1,105 @@
+.main-footer {
+  padding: 40px 20px;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: $w;
+  background-color: $grey1;
+
+  @media (min-width: $media-dt) {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  &__list {
+    @include reset-list;
+  }
+
+  &__item {
+    margin-bottom: 30px;
+  }
+
+  &__item-description,
+  &__item-title,
+  &__form-title {
+    @include reset-margin;
+  }
+
+  &__item-title {
+    padding-bottom: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: $playfair;
+    text-transform: uppercase;
+
+    @media (min-width: $media-dt) {
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+
+  &__item-description {
+    max-width: 450px;
+    font-weight: 300;
+  }
+
+  &__form-title {
+    padding-bottom: 20px;
+  }
+
+  input:not([type="checkbox"]) {
+    display: block;
+    width: 80%;
+    max-width: 400px;
+    height: 40px;
+    margin: 0 auto 18px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    color: $b;
+    border: none;
+
+    &::placeholder {
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 18px;
+      color: $grey2;
+    }
+  }
+
+  input[type="checkbox"],
+  label[for="agreement"],
+  &__form-button {
+    cursor: pointer;
+  }
+
+  input[type="checkbox"] {
+    position: relative;
+    top: 2px;
+    margin-right: 8px;
+    border: none;
+  }
+
+  &__checkbox-wrapper {
+    margin-bottom: 18px;
+  }
+
+  &__form-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 400px;
+    min-height: 40px;
+    margin: 0 auto;
+    padding: 6px 20px;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $w;
+    background-color: $b;
+    border: none;
+  }
+}

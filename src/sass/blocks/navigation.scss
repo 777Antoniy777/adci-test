@@ -11,6 +11,7 @@
   &__logo-image {
     width: 170px;
     height: 54px;
+    cursor: auto;
 
     @media (min-width: $media-dt) {
       width: 283px;
@@ -21,10 +22,6 @@
   &__logo {
     display: inline-block;
     vertical-align: top;
-  }
-
-  &__logo-image {
-    cursor: auto;
   }
 
   &__link-popup-wrapper {
