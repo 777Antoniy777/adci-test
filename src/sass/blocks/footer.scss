@@ -74,7 +74,7 @@
   }
 
   input[type="checkbox"],
-  label[for="agreement"],
+  label[for="footer-agreement"],
   &__form-button {
     cursor: pointer;
   }
@@ -86,7 +86,7 @@
     border: none;
   }
 
-  label[for="agreement"] {
+  label[for="footer-agreement"] {
     color: $grey3;
 
     @media (min-width: $media-dt) {
