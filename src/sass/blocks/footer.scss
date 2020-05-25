@@ -1,5 +1,5 @@
 .main-footer {
-  padding: 40px 20px;
+  padding: 40px 20px 10px;
   font-size: 12px;
   line-height: 18px;
   text-align: center;
@@ -11,11 +11,18 @@
     line-height: 18px;
   }
 
-  &__list {
+  &__form-wrapper {
+    margin-bottom: 30px;
+  }
+
+  &__features-list,
+  &__service-list,
+  &__social-list,
+  &__language-list {
     @include reset-list;
   }
 
-  &__item {
+  &__features-item {
     margin-bottom: 30px;
   }
 
@@ -25,7 +32,8 @@
     @include reset-margin;
   }
 
-  &__item-title {
+  &__item-title,
+  &__form-title {
     padding-bottom: 20px;
     font-weight: 700;
     font-size: 14px;
@@ -44,16 +52,13 @@
     font-weight: 300;
   }
 
-  &__form-title {
-    padding-bottom: 20px;
-  }
-
   input:not([type="checkbox"]) {
     display: block;
     width: 80%;
     max-width: 400px;
     height: 40px;
     margin: 0 auto 18px;
+    padding-left: 10px;
     font-weight: 300;
     font-size: 14px;
     line-height: 18px;
@@ -81,6 +86,15 @@
     border: none;
   }
 
+  label[for="agreement"] {
+    color: $grey3;
+
+    @media (min-width: $media-dt) {
+      font-size: 10px;
+      line-height: 24px;
+    }
+  }
+
   &__checkbox-wrapper {
     margin-bottom: 18px;
   }
@@ -101,5 +115,91 @@
     color: $w;
     background-color: $b;
     border: none;
+    transition: opacity 0.3s;
+  }
+
+  &__service-list,
+  &__social-list,
+  &__language-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  &__service-list {
+    margin-bottom: 20px;
+  }
+
+  &__service-item {
+    margin-right: 14px;
+    margin-bottom: 20px;
+    line-height: 24px;
+  }
+
+  &__social-item {
+    margin-right: 26px;
+    margin-bottom: 20px;
+
+    @media (min-width: $media-dt) {
+      margin-right: 10px;
+    }
+  }
+
+  &__social-icon {
+    width: 30px;
+    height: 30px;
+
+    @media (min-width: $media-dt) {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &__language-item {
+    position: relative;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 24px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -16px;
+      width: 1px;
+      height: 12px;
+      background-color: $w;
+      transform: translate(-50%, -50%);
+    }
+
+    &:last-child {
+      &::before {
+        content: none;
+      }
+    }
+
+    @media (min-width: $media-dt) {
+      margin-right: 22px;
+    }
+  }
+
+  // hover
+  &__service-item:hover a,
+  &__social-item:hover a,
+  &__language-item:hover a,
+  &__form-button:hover {
+    opacity: 0.7;
+  }
+
+  // active
+  &__service-item:active a,
+  &__social-item:active a,
+  &__language-item:active a,
+  &__form-button:active {
+    opacity: 0.5;
   }
 }

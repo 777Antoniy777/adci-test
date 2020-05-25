@@ -1,0 +1,43 @@
+<div class="overlay">
+  <div class="popup">
+    <div class="popup__wrapper">
+      <h2 class="popup__title">Area riservata</h2>
+  
+      <button class="popup__button-close" type="button" aria-label="Popup vicino"></button>
+    </div>
+
+    <div class="popup__wrapper">
+      <form class="popup__form" action="#" method="POST">
+        <h3 class="popup__subtitle">Accedi</h3>
+
+        <input type="email" name="email" placeholder="E-mail" required>
+        <input type="password" name="password" placeholder="Password" required>
+
+        <button class="popup__form-button" type="submit">Accedi</button>
+
+        <p class="popup__description">Password dimenticata</p>
+      </form>
+
+      <form class="popup__form" action="#" method="POST">
+        <h3 class="popup__subtitle">Registrati</h3>
+
+        <input type="text" name="name" placeholder="Nome" required>
+        <input type="text" name="surname" placeholder="Cognome" required>
+        <input type="email" name="email" placeholder="E-mail" required>
+        <input type="password" name="password" placeholder="Password" required>
+
+        <div class="popup__checkbox-wrapper">
+          <input id="agreement" type="checkbox" name="agreement" value="true" required>
+          <label for="agreement">Acconsento al trattamento dei dati</label>
+        </div>
+
+        <div class="popup__checkbox-wrapper">
+          <input id="subscription" type="checkbox" name="subscription" value="true">
+          <label for="subscription">Mi iscrivo alla Newsletter</label>
+        </div>
+
+        <button class="popup__form-button" type="submit">Iscriviti</button>
+      </form>
+    </div>
+  </div>
+</div>
