@@ -1,10 +1,16 @@
 .main-footer {
+  min-height: 400px;
   padding: 40px 20px 10px;
   font-size: 12px;
   line-height: 18px;
   text-align: center;
   color: $w;
   background-color: $grey1;
+
+  @media (min-width: $media-tb) {
+    position: relative;
+    z-index: 1;
+  }
 
   @media (min-width: $media-dt) {
     font-size: 12px;
@@ -22,8 +28,20 @@
     @include reset-list;
   }
 
+  &__features-list {
+    @media (min-width: $media-tb) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
   &__features-item {
     margin-bottom: 30px;
+
+    @media (min-width: $media-tb) {
+      width: 33.3%;
+      padding: 10px;
+    }
   }
 
   &__item-description,
@@ -151,6 +169,11 @@
   &__social-icon {
     width: 30px;
     height: 30px;
+
+    @media (min-width: $media-tb) {
+      width: 24px;
+      height: 24px;
+    }
 
     @media (min-width: $media-dt) {
       width: 18px;

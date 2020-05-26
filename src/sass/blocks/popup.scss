@@ -125,7 +125,7 @@
 
   &__description,
   label[for="popup-agreement"],
-  label[for="subscription"] {
+  label[for="popup-subscription"] {
     color: $grey3;
   }
 
@@ -137,14 +137,14 @@
 
   input[type="checkbox"],
   label[for="popup-agreement"],
-  label[for="subscription"],
+  label[for="popup-subscription"],
   &__form-button,
   &__button-close {
     cursor: pointer;
   }
 
   label[for="popup-agreement"],
-  label[for="subscription"] {
+  label[for="popup-subscription"] {
     font-size: 12px;
     line-height: 18px;
 
@@ -191,4 +191,23 @@
   &__form-button:active {
     opacity: 0.5;
   }
+}
+
+// styles for IE
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .popup__form {
+    &:last-child {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+// styles for FF
+_::-moz-progress-bar, body:last-child input:not([type="checkbox"]) {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+_::-moz-progress-bar, body:last-child .popup__form:last-child {
+  margin-bottom: 30px;
 }

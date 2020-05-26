@@ -68,6 +68,10 @@
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
+
+  @media (min-width: $media-tb) {
+    bottom: 50px;
+  }
 }
 
 .tns-nav > button {
@@ -81,6 +85,12 @@
 
   &:last-child {
     margin-right: 0;
+  }
+
+  @media (min-width: $media-tb) {
+    width: 26px;
+    height: 26px;
+    margin-right: 14px;
   }
 
   @media (min-width: $media-dt) {

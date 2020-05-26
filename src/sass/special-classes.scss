@@ -9,3 +9,11 @@
 .overflow-hidden {
   overflow-y: hidden;
 }
+
+.list-show {
+  transform: translateY(-100%);
+}
+
+.button-scale {
+  transform: translateX(-50%) scale(1, 1);
+}

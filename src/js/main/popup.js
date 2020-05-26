@@ -22,9 +22,11 @@ const onOverlayClick = (evt) => {
 };
 
 const onEscClick = (evt) => {
-  if (evt.keyCode === 27) toggleHiddenClass();
+  if (evt.keyCode === 27) {
+    toggleHiddenClass();
 
-  window.removeEventListener('keydown', onEscClick);
+    // window.removeEventListener('keydown', onEscClick);
+  }
 };
 
 popupButtonOpen.addEventListener('click', onButtonClick);

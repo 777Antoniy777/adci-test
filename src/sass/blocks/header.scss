@@ -12,6 +12,10 @@
   color: $w;
   background-color: $grey1;
 
+  @media (min-width: $media-tb) {
+    min-height: 124px;
+  }
+
   @media (min-width: $media-dt) {
     font-size: 18px;
     line-height: 24px;
@@ -22,6 +26,11 @@
 .menu-open .nav__list,
 .no-js .nav__list {
   display: block;
+
+  @media (min-width: $media-tb) {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .menu-open .nav__button {

@@ -3,6 +3,10 @@
   min-height: 600px;
   height: 100vh;
 
+  @media (min-width: $media-tb) {
+    min-height: 400px;
+  }
+
   @media (min-width: $media-dt) {
     min-height: 800px;
   }
