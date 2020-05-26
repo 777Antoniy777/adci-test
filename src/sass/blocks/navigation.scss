@@ -1,0 +1,242 @@
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__logo-wrapper {
+    width: 50%;
+    padding-left: 20px;
+
+    @media (min-width: $media-tb) {
+      margin-bottom: 22px;
+    }
+  }
+
+  &__logo,
+  &__logo-image {
+    width: 170px;
+    height: 54px;
+    cursor: auto;
+
+    @media (min-width: $media-dt) {
+      width: 283px;
+      height: 83px;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__link-popup-wrapper {
+    order: 1;
+    flex-grow: 1;
+    width: 280px * 100% / 320px;
+    padding: 20px;
+
+    @media (min-width: $media-tb) {
+      order: -1;
+      padding-top: 0;
+      padding-bottom: 14px;
+    }
+  }
+
+  &__link-popup {
+    position: relative;
+    padding-right: 20px;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 3px;
+      right: 0;
+      width: 9px;
+      height: 13px;
+      background-image: url("../img/svg/lock-icon.svg");
+      background-position: 0 0;
+      background-repeat: no-repeat;
+    }
+
+    @media (min-width: $media-dt) {
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+
+  &__button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+    padding-right: 20px;
+
+    @media (min-width: $media-tb) {
+      margin-bottom: 22px;
+    }
+  }
+
+  &__button {
+    width: 50px;
+    height: 50px;
+    background-image: url("../img/svg/burger-icon.svg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    transition: opacity 0.3s;
+    cursor: pointer;
+
+    @media (min-width: $media-dt) {
+      display: none;
+    }
+  }
+
+  &__list,
+  &__sublist {
+    @include reset-list;
+  }
+
+  &__list {
+    display: none;
+    order: 2;
+    width: 100%;
+    text-align: center;
+
+    @media (min-width: $media-tb) {
+      border-top: 1px solid $w;
+    }
+  }
+
+  &__sublist {
+    max-height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.5s;
+
+    @media (min-width: $media-tb) {
+      display: none;
+      position: absolute;
+      left: 0;
+      z-index: 2;
+      width: 180px;
+      max-height: unset;
+      padding: 10px;
+      background-color: $grey1;
+      opacity: unset;
+      visibility: unset;
+    }
+  }
+
+  &__item {
+    @media (min-width: $media-tb) {
+      position: relative;
+    }
+  }
+
+  &__item-link,
+  &__subitem-link {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 16px 20px;
+    border-top: 1px solid $w;
+
+    @media (min-width: $media-tb) {
+      border-top: none;
+    }
+  }
+
+  &__item-link {
+    text-transform: uppercase;
+
+    &--active {
+      font-weight: 700;
+      color: $yellow1;
+      cursor: auto;
+    }
+  }
+
+  &__subitem-link {
+    text-transform: capitalize;
+    border-top: none;
+
+    @media (min-width: $media-tb) {
+      display: inline-block;
+      vertical-align: top;
+      padding: 6px 10px;
+      text-align: left;
+      text-transform: uppercase;
+      border-bottom: 1px solid $w;
+    }
+
+    @media (min-width: $media-dt) {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__subitem:first-child a {
+    border-top: 1px solid $w;
+
+    @media (min-width: $media-tb) {
+      border-top: none;
+    }
+  }
+
+  &__subitem:last-child a {
+    @media (min-width: $media-tb) {
+      border-bottom: none;
+    }
+  }
+
+  // hover
+  &__item:hover .nav__sublist {
+    max-height: 100vh;
+    visibility: visible;
+    overflow: none;
+    opacity: 1;
+
+    @media (min-width: $media-tb) {
+      display: block;
+      max-height: unset;
+      opacity: unset;
+      visibility: unset;
+    }
+  }
+
+  &__item-link[href]:hover,
+  &__subitem-link[href]:hover {
+    color: $b;
+    background-color: $w;
+
+    @media (min-width: $media-tb) {
+      color: $yellow1;
+      background-color: $grey1;
+    }
+  }
+
+  &__link-popup:hover,
+  &__button:hover {
+    opacity: 0.7;
+  }
+
+  // active
+  &__item-link[href]:active,
+  &__subitem-link[href]:active {
+    background-color: rgba($w, 0.7);
+
+    @media (min-width: $media-tb) {
+      color: rgba($yellow1, 0.7);
+      background-color: $grey1;
+    }
+  }
+
+  &__link-popup:active,
+  &__button:active {
+    opacity: 0.5;
+  }
+}

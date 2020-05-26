@@ -1,0 +1,110 @@
+.slider {
+  font-size: 14px;
+  line-height: 18px;
+
+  @media (min-width: $media-dt) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  &__item,
+  &__item-image {
+    width: 100%;
+    min-height: 600px;
+    height: 100vh;
+
+    @media (min-width: $media-dt) {
+      min-height: 800px;
+    }
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__item-image {
+    object-fit: cover;
+    object-position: 46% 0;
+  }
+
+  &__item-title,
+  &__item-description {
+    @include reset-margin;
+  }
+
+  &__item-title {
+    padding-bottom: 20px;
+    font-family: $playfair;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 24px;
+    line-height: 28px;
+
+    @media (min-width: $media-dt) {
+      padding-bottom: 30px;
+      font-size: 30px;
+      line-height: 34px;
+    }
+  }
+
+  &__item-wrapper {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 1;
+    max-width: 500px;
+    width: 85%;
+    min-height: 100px;
+    padding: 18px 27px;
+    background-color: rgba($w, 0.85);
+    transform: translateY(-50%);
+  }
+}
+
+// tiny slider extend styles
+.tns-nav {
+  position: absolute;
+  z-index: 1;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media (min-width: $media-tb) {
+    bottom: 50px;
+  }
+}
+
+.tns-nav > button {
+  width: 30px;
+  height: 30px;
+  margin-right: 24px;
+  background-color: $w;
+  border: 2px solid $b;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media (min-width: $media-tb) {
+    width: 26px;
+    height: 26px;
+    margin-right: 14px;
+  }
+
+  @media (min-width: $media-dt) {
+    width: 14px;
+    height: 14px;
+    margin-right: 10px;
+  }
+}
+
+.tns-nav .tns-nav-active {
+  background-color: $yellow1;
+}
+
+// hover
+.tns-nav > button:hover {
+  background-color: $yellow1;
+}

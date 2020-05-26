@@ -1,0 +1,213 @@
+.overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 10px;
+  width: 100%;
+  min-height: 600px;
+  height: 100vh;
+  background-color: rgba($w, 0.6);
+}
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 280px;
+  max-width: 500px;
+  width: 90%;
+  height: 80vh;
+  max-height: 780px;
+  padding: 24px 20px;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: $w;
+  background-color: $grey1;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+
+  @media (min-width: $media-dt) {
+    padding: 14px 20px;
+  }
+
+  &__wrapper {
+    &:first-child {
+      display: flex;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__form {
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__button-close {
+    width: 30px;
+    height: 30px;
+    background-image: url("../img/svg/popup-close-icon.svg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    transition: opacity 0.3s;
+
+    @media (min-width: $media-dt) {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  &__title,
+  &__subtitle,
+  &__description {
+    @include reset-margin;
+  }
+
+  &__title,
+  &__subtitle {
+    font-weight: 700;
+    font-family: $playfair;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 26px;
+  }
+
+  &__subtitle {
+    padding-bottom: 20px;
+    font-size: 18px;
+    line-height: 24px;
+
+    @media (min-width: $media-dt) {
+      padding-bottom: 17px;
+    }
+  }
+
+  input:not([type="checkbox"]) {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    height: 40px;
+    margin: 0 auto 18px;
+    padding-left: 10px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    color: $b;
+    border: none;
+
+    &::placeholder {
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 18px;
+      color: $grey2;
+    }
+  }
+
+  &__checkbox-wrapper {
+    max-width: 400px;
+    margin: 0 auto 6px;
+    text-align: left;
+  }
+
+  &__form:nth-child(2) .popup__checkbox-wrapper:nth-of-type(2) {
+    margin-bottom: 20px;
+  }
+
+  &__description,
+  label[for="popup-agreement"],
+  label[for="popup-subscription"] {
+    color: $grey3;
+  }
+
+  &__description {
+    padding-top: 15px;
+    font-size: 12px;
+    line-height: 24px;
+  }
+
+  input[type="checkbox"],
+  label[for="popup-agreement"],
+  label[for="popup-subscription"],
+  &__form-button,
+  &__button-close {
+    cursor: pointer;
+  }
+
+  label[for="popup-agreement"],
+  label[for="popup-subscription"] {
+    font-size: 12px;
+    line-height: 18px;
+
+    @media (min-width: $media-dt) {
+      font-size: 10px;
+      line-height: 24px;
+    }
+  }
+
+  input[type="checkbox"] {
+    position: relative;
+    top: 2px;
+    margin-right: 8px;
+    border: none;
+  }
+
+  &__form-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    min-height: 40px;
+    margin: 0 auto;
+    padding: 6px 20px;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    text-transform: uppercase;
+    color: $w;
+    background-color: $b;
+    border: none;
+    transition: opacity 0.3s;
+  }
+
+  // hover
+  &__button-close:hover,
+  &__form-button:hover {
+    opacity: 0.7;
+  }
+
+  // active
+  &__button-close:active,
+  &__form-button:active {
+    opacity: 0.5;
+  }
+}
+
+// styles for IE
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .popup__form {
+    &:last-child {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+// styles for FF
+_::-moz-progress-bar, body:last-child input:not([type="checkbox"]) {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+_::-moz-progress-bar, body:last-child .popup__form:last-child {
+  margin-bottom: 30px;
+}
