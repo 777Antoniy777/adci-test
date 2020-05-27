@@ -1,0 +1,45 @@
+.main-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  min-width: 320px;
+  width: 100%;
+  min-height: 130px;
+  padding-top: 20px;
+  font-size: 14px;
+  line-height: 18px;
+  color: $w;
+  background-color: $grey1;
+
+  @media (min-width: $media-tb) {
+    min-height: 124px;
+  }
+
+  @media (min-width: $media-dt) {
+    min-height: 130px;
+    padding-top: 0;
+    padding-bottom: 9px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+// meny styles
+.menu-open .nav__list,
+.no-js .nav__list {
+  display: block;
+
+  @media (min-width: $media-tb) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.menu-open .nav__button {
+  background-image: url("../img/svg/close-icon.svg");
+}
+
+.no-js .nav__button-wrapper {
+  display: none;
+}

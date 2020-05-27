@@ -1,0 +1,20 @@
+.intro {
+  position: relative;
+  min-height: 600px;
+  height: 100vh;
+
+  @media (min-width: $media-tb) {
+    min-height: 400px;
+  }
+
+  .site-wrapper {
+    @media (min-width: $media-dt) {
+      max-width: none;
+      width: 100%;
+    }
+  }
+
+  h1 {
+    @include visually-hidden;
+  }
+}

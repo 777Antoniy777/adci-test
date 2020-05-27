@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="no-js" lang="it">
+  <head>
+    <meta charset="utf-8">
+    <title>mmlampadari</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="Description" content="Negozio di lampade belle e decorative">
+    <link href="css/style.min.css" rel="stylesheet">
+    <link href="fonts/OpenSans-Light.woff2" as="font" rel="preload" crossorigin="anonymous">
+    <link href="fonts/OpenSans-Regular.woff2" as="font" rel="preload" crossorigin="anonymous">
+    <link href="fonts/OpenSans-SemiBold.woff2" as="font" rel="preload" crossorigin="anonymous">
+    <link href="fonts/OpenSans-Bold.woff2" as="font" rel="preload" crossorigin="anonymous">
+    <link href="fonts/PlayfairDisplay-Bold.woff2" as="font" rel="preload" crossorigin="anonymous">
+    <link href="fonts/PlayfairDisplay-BoldItalic.woff2" as="font" rel="preload" crossorigin="anonymous">
+    <script>
+      document.documentElement.classList.remove("no-js");
+    </script>
+    <script>
+      // Picture element HTML5 shiv
+      document.createElement( "picture" );
+    </script>
+    <script src="js/async.js" async></script>
+  </head>
+  
+  <body class="main-page">
+
+    <!-- Хедер гл.стр -->
+    @@include("./common/header.html")
+
+    <!-- Основная часть гл.стр-->
+    <main class="main">
+      <div class="main__wrapper">
+
+        <!-- Интро -->
+        @@include("./includes/index/intro.html")
+
+        <!-- Новости -->
+        @@include("./includes/index/news.html")
+
+        <!-- Попап -->
+        @@include("./includes/index/popup.html")
+  
+      </div>
+    </main>
+
+    <!-- Футер гл.стр -->
+    @@include("./common/footer.html")
+
+    <script src="js/all.js"></script>
+  </body>
+</html>
