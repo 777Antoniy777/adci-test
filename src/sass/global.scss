@@ -34,10 +34,6 @@ body {
   margin-right: auto;
   margin-left: auto;
 
-  // @media (min-width: $media-tb) {
-  //   width: 952px * 100% / 1024px;
-  // }
-
   @media (min-width: $media-dt) {
     width: 1200px * 100% / 1240px;
   }

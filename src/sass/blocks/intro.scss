@@ -7,8 +7,11 @@
     min-height: 400px;
   }
 
-  @media (min-width: $media-dt) {
-    min-height: 800px;
+  .site-wrapper {
+    @media (min-width: $media-dt) {
+      max-width: none;
+      width: 100%;
+    }
   }
 
   h1 {

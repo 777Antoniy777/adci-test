@@ -9,7 +9,8 @@ var autoprefixer = require("autoprefixer");
 var objectFit = require("postcss-object-fit-images");
 var csso = require("gulp-csso");
 var rename = require("gulp-rename");
-// var image = require("gulp-image");
+var image = require("gulp-image");
+var webp = require('gulp-webp');
 var webpack = require("webpack");
 var webpackStream = require("webpack-stream");
 var webpackConfig = require('./webpack.config.js');
@@ -50,25 +51,31 @@ gulp.task("js", function () {
 // img (jpg, png, svg)
 gulp.task("images", function() {
   return gulp.src([
-    "src/img/**/*.{png,jpg,svg}", 
+    "src/img/**/*.{png,jpg,webp,svg}", 
     "!src/img/icons-sprite/*.svg"])
-    // .pipe(image({
-    //   pngquant: true,
-    //   optipng: false,
-    //   zopflipng: false,
-    //   jpegRecompress: false,
-    //   mozjpeg: {
-    //     progressive: true,
-    //     optimize: true,
-    //     quality: 70
-    //   },
-    //   guetzli: false,
-    //   gifsicle: false,
-    //   svgo: true,
-    //   concurrent: 10,
-    //   quiet: true
-    // }))
+    .pipe(image({
+      pngquant: true,
+      optipng: false,
+      zopflipng: false,
+      jpegRecompress: false,
+      mozjpeg: {
+        progressive: true,
+        optimize: true,
+        quality: 70
+      },
+      guetzli: false,
+      gifsicle: false,
+      svgo: true,
+      concurrent: 10,
+      quiet: true
+    }))
     .pipe(gulp.dest("build/img/"));
+});
+
+gulp.task('webp', function () {
+  return gulp.src('src/img/**/*.{png,jpg}')
+    .pipe(webp({quality: 90}))
+    .pipe(gulp.dest('src/img'));
 });
 
 // svg sprite
@@ -121,7 +128,8 @@ gulp.task("reload", function(done) {
 
 gulp.task("copy", function() {
   return gulp.src([
-    "src/fonts/**/*.{woff,woff2}"
+    "src/fonts/**/*.{woff,woff2}",
+    "src/js/async.js"
   ], {
     base: "src"
   })

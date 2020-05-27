@@ -16,10 +16,18 @@
     @media (min-width: $media-tb) {
       position: absolute;
       top: 0;
+      left: 50%;
       z-index: 1;
       display: flex;
       width: 100%;
+      transform: translateX(-50%);
       transition: transform 1s;
+    }
+
+    @media (min-width: $media-dt) {
+      max-width: 1200px;
+      width: 1200px * 100% / 1240px;
+      transform: translateX(-50%);
     }
   }
 
@@ -81,7 +89,8 @@
     }
 
     @media (min-width: $media-dt) {
-      padding: 15px 18px;
+      min-height: 172px;
+      padding: 15px 19px 8px 15px;
       text-align: left;
     }
   }
@@ -100,7 +109,8 @@
     font-family: $playfair;
 
     @media (min-width: $media-dt) {
-      padding-bottom: 16px;
+      min-height: 65px;
+      padding-bottom: 5px;
       font-size: 28px;
       line-height: 30px;
     }
@@ -111,7 +121,7 @@
     padding-bottom: 30px;
 
     @media (min-width: $media-dt) {
-      padding-bottom: 20px;
+      padding-bottom: 10px;
     }
   }
 
@@ -128,6 +138,7 @@
     @media (min-width: $media-dt) {
       font-size: 18px;
       line-height: 24px;
+      align-self: flex-end;
     }
   }
 
