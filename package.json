@@ -44,7 +44,7 @@
     "test": "npm run editorconfig && npm run stylelint && npm run eslint",
     "build": "gulp build",
     "start": "gulp start",
-    "imagemin": "gulp imagemin"
+    "webp": "gulp webp"
   },
   "browserslist": [
     "last 2 versions",

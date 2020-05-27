@@ -12,10 +12,6 @@
     width: 100%;
     min-height: 600px;
     height: 100vh;
-
-    @media (min-width: $media-dt) {
-      min-height: 800px;
-    }
   }
 
   &__item {

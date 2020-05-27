@@ -227,7 +227,7 @@
 
     @media (min-width: $media-dt) {
       justify-content: flex-start;
-      max-width: unset;
+      max-width: none;
       width: auto;
       margin: 0;
     }
