@@ -9,6 +9,12 @@
     @media (min-width: $media-tb) {
       margin-bottom: 22px;
     }
+
+    @media (min-width: $media-dt) {
+      width: 30%;
+      margin-bottom: 12px;
+      padding-left: 0;
+    }
   }
 
   &__logo,
@@ -38,6 +44,11 @@
       order: -1;
       padding-top: 0;
       padding-bottom: 14px;
+    }
+
+    @media (min-width: $media-dt) {
+      padding: 0;
+      text-align: right;
     }
   }
 
@@ -76,6 +87,10 @@
     @media (min-width: $media-tb) {
       margin-bottom: 22px;
     }
+
+    @media (min-width: $media-dt) {
+      display: none;
+    }
   }
 
   &__button {
@@ -108,6 +123,17 @@
     @media (min-width: $media-tb) {
       border-top: 1px solid $w;
     }
+
+    @media (min-width: $media-dt) {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      width: 70%;
+      min-height: 83px;
+      padding-top: 60px;
+      border-top: none;
+    }
   }
 
   &__sublist {
@@ -129,11 +155,26 @@
       opacity: unset;
       visibility: unset;
     }
+
+    @media (min-width: $media-dt) {
+      left: -14px;
+      width: 148px;
+      padding: 28px 7px 8px;
+    }
   }
 
   &__item {
     @media (min-width: $media-tb) {
       position: relative;
+    }
+
+    @media (min-width: $media-dt) {
+      margin-right: 25px;
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 
@@ -147,6 +188,10 @@
 
     @media (min-width: $media-tb) {
       border-top: none;
+    }
+
+    @media (min-width: $media-dt) {
+      padding: 0;
     }
   }
 
@@ -174,6 +219,7 @@
     }
 
     @media (min-width: $media-dt) {
+      padding: 2px 9px;
       font-size: 16px;
       line-height: 24px;
     }

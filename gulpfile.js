@@ -9,7 +9,7 @@ var autoprefixer = require("autoprefixer");
 var objectFit = require("postcss-object-fit-images");
 var csso = require("gulp-csso");
 var rename = require("gulp-rename");
-// var image = require("gulp-image");
+var image = require("gulp-image");
 var webpack = require("webpack");
 var webpackStream = require("webpack-stream");
 var webpackConfig = require('./webpack.config.js');
@@ -52,22 +52,22 @@ gulp.task("images", function() {
   return gulp.src([
     "src/img/**/*.{png,jpg,svg}", 
     "!src/img/icons-sprite/*.svg"])
-    // .pipe(image({
-    //   pngquant: true,
-    //   optipng: false,
-    //   zopflipng: false,
-    //   jpegRecompress: false,
-    //   mozjpeg: {
-    //     progressive: true,
-    //     optimize: true,
-    //     quality: 70
-    //   },
-    //   guetzli: false,
-    //   gifsicle: false,
-    //   svgo: true,
-    //   concurrent: 10,
-    //   quiet: true
-    // }))
+    .pipe(image({
+      pngquant: true,
+      optipng: false,
+      zopflipng: false,
+      jpegRecompress: false,
+      mozjpeg: {
+        progressive: true,
+        optimize: true,
+        quality: 70
+      },
+      guetzli: false,
+      gifsicle: false,
+      svgo: true,
+      concurrent: 10,
+      quiet: true
+    }))
     .pipe(gulp.dest("build/img/"));
 });
 

@@ -11,6 +11,13 @@
     min-height: 800px;
   }
 
+  .site-wrapper {
+    @media (min-width: $media-dt) {
+      max-width: unset;
+      width: 100%;
+    }
+  }
+
   h1 {
     @include visually-hidden;
   }

@@ -30,13 +30,29 @@
   overflow: auto;
 
   @media (min-width: $media-dt) {
-    padding: 14px 20px;
+    top: 55%;
+    max-width: 596px;
+    min-height: 360px;
+    max-height: 650px;
+    height: unset;
+    padding: 8px 17px 12px;
   }
 
   &__wrapper {
     &:first-child {
       display: flex;
       margin-bottom: 30px;
+    }
+
+    @media (min-width: $media-dt) {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 59px;
+
+      &:first-child {
+        margin-bottom: 19px;
+        padding: 0;
+      }
     }
   }
 
@@ -45,6 +61,17 @@
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    @media (min-width: $media-dt) {
+      margin-right: 72px;
+      margin-bottom: 15px;
+
+      &:nth-child(even),
+      &:last-child {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
     }
   }
 
@@ -80,6 +107,10 @@
   &__title {
     font-size: 24px;
     line-height: 26px;
+
+    @media (min-width: $media-dt) {
+      padding-left: 24px;
+    }
   }
 
   &__subtitle {
@@ -88,7 +119,8 @@
     line-height: 24px;
 
     @media (min-width: $media-dt) {
-      padding-bottom: 17px;
+      padding-bottom: 11px;
+      text-align: left;
     }
   }
 
@@ -111,16 +143,38 @@
       line-height: 18px;
       color: $grey2;
     }
+
+    @media (min-width: $media-dt) {
+      width: 184px;
+      max-width: 184px;
+      height: 30px;
+      margin-bottom: 12px;
+      padding-left: 12px;
+    }
+  }
+
+  &__form:nth-child(2) input:not([type="checkbox"]):last-of-type {
+    @media (min-width: $media-dt) {
+      margin-bottom: 4px;
+    }
   }
 
   &__checkbox-wrapper {
     max-width: 400px;
     margin: 0 auto 6px;
     text-align: left;
+
+    @media (min-width: $media-dt) {
+      margin-bottom: 0;
+    }
   }
 
   &__form:nth-child(2) .popup__checkbox-wrapper:nth-of-type(2) {
     margin-bottom: 20px;
+
+    @media (min-width: $media-dt) {
+      margin-bottom: 4px;
+    }
   }
 
   &__description,
@@ -133,6 +187,11 @@
     padding-top: 15px;
     font-size: 12px;
     line-height: 24px;
+
+    @media (min-width: $media-dt) {
+      padding-top: 4px;
+      text-align: left;
+    }
   }
 
   input[type="checkbox"],
@@ -150,7 +209,7 @@
 
     @media (min-width: $media-dt) {
       font-size: 10px;
-      line-height: 24px;
+      line-height: 12px;
     }
   }
 
@@ -159,6 +218,12 @@
     top: 2px;
     margin-right: 8px;
     border: none;
+
+    @media (min-width: $media-dt) {
+      width: 9px;
+      height: 9px;
+      margin-right: 3px;
+    }
   }
 
   &__form-button {
@@ -178,6 +243,11 @@
     background-color: $b;
     border: none;
     transition: opacity 0.3s;
+
+    @media (min-width: $media-dt) {
+      min-height: 30px;
+      padding: 4px 20px;
+    }
   }
 
   // hover

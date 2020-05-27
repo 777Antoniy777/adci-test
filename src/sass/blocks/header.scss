@@ -17,6 +17,9 @@
   }
 
   @media (min-width: $media-dt) {
+    min-height: 130px;
+    padding-top: 0;
+    padding-bottom: 9px;
     font-size: 18px;
     line-height: 24px;
   }

@@ -8,11 +8,18 @@ const toggleHiddenClass = () => {
   overlay.classList.toggle('visible');
   body.classList.toggle('overflow-hidden');
   html.classList.toggle('overflow-hidden');
+
+  document.removeEventListener('keydown', onEscClick);
 };
 
 const onButtonClick = (evt) => {
+  const target = evt.target;
   evt.preventDefault();
   toggleHiddenClass();
+
+  if (target === popupButtonOpen) {
+    document.addEventListener('keydown', onEscClick);
+  }
 };
 
 const onOverlayClick = (evt) => {
@@ -23,13 +30,12 @@ const onOverlayClick = (evt) => {
 
 const onEscClick = (evt) => {
   if (evt.keyCode === 27) {
-    toggleHiddenClass();
-
-    // window.removeEventListener('keydown', onEscClick);
+    if (overlay.classList.contains('visible')) {
+      toggleHiddenClass();
+    }
   }
 };
 
 popupButtonOpen.addEventListener('click', onButtonClick);
 popupButtonClose.addEventListener('click', onButtonClick);
 overlay.addEventListener('click', onOverlayClick);
-window.addEventListener('keydown', onEscClick);
