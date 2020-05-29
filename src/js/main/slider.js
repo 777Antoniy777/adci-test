@@ -8,16 +8,3 @@ const slider = tns({
   controls: false,
   mouseDrag: true,
 });
-
-// const mql = window.matchMedia('(max-width: 991px)');
-
-// const isMediaTb = (e) => {
-//   if (authorSlider.isOn) authorSlider.destroy();
-
-//   if (e.matches) {
-//     authorSlider = authorSlider.rebuild();
-//   }
-// };
-
-// isMediaTb(mql);
-// mql.addListener(isMediaTb);
