@@ -273,9 +273,16 @@
 }
 
 // styles for FF
-_::-moz-progress-bar, body:last-child input:not([type="checkbox"]) {
-  padding-top: 10px;
-  padding-bottom: 10px;
+@media all and (min--moz-device-pixel-ratio: 0) {
+  _::-moz-progress-bar, body:last-child input:not([type="checkbox"]) {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    @media (min-width: 1024px) {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
 }
 
 _::-moz-progress-bar, body:last-child .popup__form:last-child {

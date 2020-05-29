@@ -293,12 +293,12 @@
     &::before {
       content: "";
       position: absolute;
-      top: 50%;
+      top: 0;
       right: -16px;
       width: 1px;
       height: 12px;
       background-color: $w;
-      transform: translate(-50%, -50%);
+      transform: translateY(50%);
     }
 
     &:last-child {
@@ -336,4 +336,9 @@
   &__form-button:active {
     opacity: 0.5;
   }
+}
+
+// styles for FF
+_::-moz-range-track, body:last-child .main-footer__language-item::before {
+  width: 2px;
 }
