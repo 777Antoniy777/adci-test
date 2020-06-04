@@ -72,6 +72,7 @@ gulp.task("images", function() {
     .pipe(gulp.dest("build/img/"));
 });
 
+// img (webp)
 gulp.task('webp', function () {
   return gulp.src('src/img/**/*.{png,jpg}')
     .pipe(webp({quality: 90}))
@@ -102,6 +103,30 @@ gulp.task("html", function() {
     .pipe(gulp.dest("build"));
 });
 
+// favicons
+gulp.task("favicons", function () {
+  return gulp.src("src/favicons/*")
+    .pipe(image({
+      pngquant: false,
+      optipng: false,
+      zopflipng: false,
+      jpegRecompress: false,
+      mozjpeg: false,
+      guetzli: false,
+      gifsicle: false,
+      svgo: true,
+      concurrent: 10,
+      quiet: true
+    }))
+    .pipe(gulp.dest("build"));
+});
+
+// manifest
+gulp.task("manifest", function () {
+  return gulp.src("manifest.json")
+    .pipe(gulp.dest("build"));
+});
+
 gulp.task("server", function() {
   server.init({
     server: "build/",
@@ -118,6 +143,8 @@ gulp.task("server", function() {
   gulp.watch("src/img/icons-sprite/*.svg", gulp.series("sprite", "reload"));
   gulp.watch("src/sass/**/*.{scss,sass}", gulp.series("css"));
   gulp.watch("src/js/*/**.js", gulp.series("js"));
+  gulp.watch("src/favicons/*", gulp.series("favicons")).on("change", server.reload);
+  gulp.watch("manifest.json", gulp.series("manifest", "reload"));
   gulp.watch("src/**/*.html", gulp.series("html", "reload"));
 });
 
@@ -146,6 +173,8 @@ gulp.task("build", gulp.series(
   "sprite",
   "images",
   "css",
+  "favicons",
+  "manifest",
   "copy",
   "html"
 ));
