@@ -107,7 +107,7 @@ gulp.task("html", function() {
 gulp.task("favicons", function () {
   return gulp.src("src/favicons/*")
     .pipe(image({
-      pngquant: false,
+      pngquant: true,
       optipng: false,
       zopflipng: false,
       jpegRecompress: false,
@@ -118,6 +118,11 @@ gulp.task("favicons", function () {
       concurrent: 10,
       quiet: true
     }))
+    .pipe(gulp.dest("build/favicons"));
+});
+
+gulp.task("copyDefaultFavicon", function() {
+  return gulp.src("favicon.ico")
     .pipe(gulp.dest("build"));
 });
 
@@ -155,8 +160,7 @@ gulp.task("reload", function(done) {
 
 gulp.task("copy", function() {
   return gulp.src([
-    "src/fonts/**/*.{woff,woff2}",
-    "src/js/async.js"
+    "src/fonts/**/*.{woff,woff2}"
   ], {
     base: "src"
   })
@@ -176,6 +180,7 @@ gulp.task("build", gulp.series(
   "favicons",
   "manifest",
   "copy",
+  "copyDefaultFavicon",
   "html"
 ));
 
