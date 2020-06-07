@@ -1,6 +1,13 @@
+const path = require('path');
+const glob = require('glob');
+
 module.exports = {
+  entry: {
+    async: glob.sync(path.join(__dirname, '/src/js/async/**/*.js')),
+    all: glob.sync(path.join(__dirname, '/src/js/index/**/*.js')),
+  },
   output: {
-    filename: 'all.js',
+    filename: '[name].js',
   },
   module: {
     rules: [
@@ -8,7 +15,6 @@ module.exports = {
         test: /\.(js)$/,
         exclude: [
           /(node_modules)/,
-          /async.(js)$/,
         ],
         use: {
           loader: 'babel-loader',
