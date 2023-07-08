@@ -32,7 +32,7 @@
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^3.0.0",
     "postcss-object-fit-images": "^1.1.2",
-    "stylelint": "9.6.x",
+    "stylelint": "15.10.x",
     "stylelint-config-htmlacademy": "0.1.x",
     "webpack": "^4.43.0",
     "webpack-stream": "^5.2.1"
